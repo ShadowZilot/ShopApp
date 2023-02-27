@@ -8,4 +8,7 @@
     <string name="exist_account_label">Already have an account?</string>
     <string name="log_in_label">Log in</string>
     <string name="sign_in_google_label">Sign in with Google</string>
+    <string name="login_title">Welcome back!</string>
+    <string name="password_label">Password</string>
+    <string name="login_label">Login</string>
 </resources>
