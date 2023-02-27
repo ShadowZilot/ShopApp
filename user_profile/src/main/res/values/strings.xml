@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">user_profile</string>
     <string name="sign_in_title">Sign in</string>
+    <string name="filed_first_name_hint">First name</string>
+    <string name="filed_last_name_hint">Last name</string>
+    <string name="filed_email_hint">Email</string>
+    <string name="sign_in_label">Sign In</string>
+    <string name="exist_account_label">Already have an account?</string>
+    <string name="log_in_label">Log in</string>
+    <string name="sign_in_google_label">Sign in with Google</string>
 </resources>
