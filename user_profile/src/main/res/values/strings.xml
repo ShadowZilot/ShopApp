@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">user_profile</string>
+    <string name="sign_in_title">Sign in</string>
+</resources>
