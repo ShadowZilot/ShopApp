@@ -95,11 +95,11 @@
         app:layout_constraintBaseline_toBaselineOf="@id/existAccountLabel"
         app:layout_constraintStart_toEndOf="@id/existAccountLabel" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/googleSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="null"
+        android:background="@null"
         android:drawableStart="@drawable/google_icon"
         android:drawablePadding="12dp"
         android:fontFamily="@font/montserrat"
@@ -111,12 +111,12 @@
         app:layout_constraintTop_toBottomOf="@id/existAccountLabel"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/appleSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="null"
+        android:layout_marginTop="20dp"
+        android:background="@null"
         android:drawableStart="@drawable/apple_icon"
         android:drawablePadding="12dp"
         android:fontFamily="@font/montserrat"

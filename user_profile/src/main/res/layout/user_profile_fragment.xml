@@ -9,7 +9,7 @@
         android:id="@+id/profileTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat"
         android:text="@string/profile_title"
         android:textColor="@color/black"

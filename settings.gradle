@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "ShopApp"
 include ':app'
 include ':user_profile'
-include ':theme'
+include ':commons'
