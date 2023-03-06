@@ -1,6 +1,8 @@
 package com.egorponomarev.user_profile.profile.ui
 
 import android.annotation.SuppressLint
+import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -27,6 +29,15 @@ class UserProfileFragment : BaseFragment<UserProfileFragmentBinding>(
 
     private val mViewModel : UserProfileViewModel by viewModels {
         UserProfileViewModel.Factory(UserHandling.Base(requireContext()))
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        mBinding.logOut.setOnClickListener {
+            mViewModel.logOut()
+            findNavController().navigate(
+                R.id.action_userProfileFragment_to_signInFragment
+            )
+        }
     }
 
     override fun onStart() {

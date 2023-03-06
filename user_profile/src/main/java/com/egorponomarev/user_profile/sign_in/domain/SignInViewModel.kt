@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.egorponomarev.user_profile.data.UserData
 import com.egorponomarev.user_profile.data.UserHandling
+import com.egorponomarev.user_profile.data.UserNotRegistered
 import com.egorponomarev.user_profile.data.ValidateUserData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -19,7 +20,20 @@ class SignInViewModel(
     private val mUserData: UserHandling
 ) : ViewModel() {
 
-    fun signInUser(userData: UserData) : Flow<Boolean> {
+    fun checkUserRegistration(): Flow<Boolean> {
+        return flow {
+            emit(
+                try {
+                    mUserData.user()
+                    true
+                } catch (e: UserNotRegistered) {
+                    false
+                }
+            )
+        }.flowOn(Dispatchers.IO)
+    }
+
+    fun signInUser(userData: UserData): Flow<Boolean> {
         return flow {
             if (userData.map(ValidateUserData())) {
                 userData.map(mUserData)

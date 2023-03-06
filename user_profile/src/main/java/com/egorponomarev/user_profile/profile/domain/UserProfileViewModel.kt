@@ -2,6 +2,7 @@ package com.egorponomarev.user_profile.profile.domain
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import com.egorponomarev.theme.base.ResultData
 import com.egorponomarev.theme.base.ResultLogic
 import com.egorponomarev.user_profile.R
@@ -12,6 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.launch
 
 /**
  * Human Developing Soft
@@ -21,6 +23,12 @@ import kotlinx.coroutines.flow.flowOn
 class UserProfileViewModel(
     private val mUserHandling: UserHandling
 ) : ViewModel() {
+
+    fun logOut() {
+        viewModelScope.launch(Dispatchers.IO) {
+            mUserHandling.clearUserData()
+        }
+    }
 
     fun loadUserData(): Flow<ResultData<UserData>> {
         return flow {
