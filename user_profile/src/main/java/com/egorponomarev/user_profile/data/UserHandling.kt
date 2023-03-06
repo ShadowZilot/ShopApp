@@ -23,10 +23,6 @@ interface UserHandling : UserData.Mapper<Unit> {
 
         override fun clearUserData() {
             mDatastore.edit()
-                .remove("firstName")
-                .remove("lastName")
-                .remove("email")
-                .remove("photo")
                 .putBoolean("isRegister", false)
                 .apply()
         }

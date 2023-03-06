@@ -8,5 +8,18 @@
     <fragment
         android:id="@+id/signInFragment"
         android:name="com.egorponomarev.user_profile.sign_in.ui.SignInFragment"
-        tools:layout="@layout/sign_in_fragment"/>
+        tools:layout="@layout/sign_in_fragment">
+        <action
+            android:id="@+id/action_signInFragment_to_userProfileFragment"
+            app:destination="@id/userProfileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="com.egorponomarev.user_profile.profile.ui.UserProfileFragment"
+        tools:layout="@layout/user_profile_fragment">
+        <action
+            android:id="@+id/action_userProfileFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
 </navigation>

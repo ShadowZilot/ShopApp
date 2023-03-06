@@ -5,6 +5,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
 import com.egorponomarev.theme.base.BaseFragment
 import com.egorponomarev.user_profile.R
 import com.egorponomarev.user_profile.data.UserData
@@ -44,6 +46,10 @@ class SignInFragment : BaseFragment<SignInFragmentBinding>(R.layout.sign_in_frag
                             R.string.user_data_wrong_label,
                             Toast.LENGTH_SHORT
                         ).show()
+                    } else {
+                        findNavController().navigate(
+                            R.id.action_signInFragment_to_userProfileFragment
+                        )
                     }
                 }
             }
