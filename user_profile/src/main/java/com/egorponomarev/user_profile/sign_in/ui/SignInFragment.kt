@@ -8,6 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.egorponomarev.theme.base.BaseFragment
+import com.egorponomarev.theme.base.navigateWithoutBack
 import com.egorponomarev.user_profile.R
 import com.egorponomarev.user_profile.data.UserData
 import com.egorponomarev.user_profile.data.UserHandling
@@ -34,7 +35,7 @@ class SignInFragment : BaseFragment<SignInFragmentBinding>(R.layout.sign_in_frag
         viewLifecycleOwner.lifecycleScope.launchWhenCreated {
             mViewModel.checkUserRegistration().collect {
                 if (it) {
-                    findNavController().navigate(
+                    findNavController().navigateWithoutBack(
                         R.id.action_signInFragment_to_userProfileFragment
                     )
                 }
@@ -57,7 +58,7 @@ class SignInFragment : BaseFragment<SignInFragmentBinding>(R.layout.sign_in_frag
                             Toast.LENGTH_SHORT
                         ).show()
                     } else {
-                        findNavController().navigate(
+                        findNavController().navigateWithoutBack(
                             R.id.action_signInFragment_to_userProfileFragment
                         )
                     }

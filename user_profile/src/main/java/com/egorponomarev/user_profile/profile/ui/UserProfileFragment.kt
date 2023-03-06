@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.egorponomarev.theme.base.BaseFragment
 import com.egorponomarev.theme.base.ResultLogic
+import com.egorponomarev.theme.base.navigateWithoutBack
 import com.egorponomarev.user_profile.R
 import com.egorponomarev.user_profile.data.UserData
 import com.egorponomarev.user_profile.data.UserHandling
@@ -34,7 +35,7 @@ class UserProfileFragment : BaseFragment<UserProfileFragmentBinding>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         mBinding.logOut.setOnClickListener {
             mViewModel.logOut()
-            findNavController().navigate(
+            findNavController().navigateWithoutBack(
                 R.id.action_userProfileFragment_to_signInFragment
             )
         }
@@ -65,7 +66,7 @@ class UserProfileFragment : BaseFragment<UserProfileFragmentBinding>(
             message,
             Toast.LENGTH_SHORT
         ).show()
-        findNavController().navigate(
+        findNavController().navigateWithoutBack(
             R.id.action_userProfileFragment_to_signInFragment
         )
     }

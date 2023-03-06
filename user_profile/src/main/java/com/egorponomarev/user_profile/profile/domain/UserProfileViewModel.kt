@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.egorponomarev.theme.base.ResultData
-import com.egorponomarev.theme.base.ResultLogic
 import com.egorponomarev.user_profile.R
 import com.egorponomarev.user_profile.data.UserData
 import com.egorponomarev.user_profile.data.UserHandling
