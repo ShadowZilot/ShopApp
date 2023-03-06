@@ -7,6 +7,6 @@
 
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.egorponomarev.user_profile.sign_in.SignInFragment"
+        android:name="com.egorponomarev.user_profile.sign_in.ui.SignInFragment"
         tools:layout="@layout/sign_in_fragment"/>
 </navigation>

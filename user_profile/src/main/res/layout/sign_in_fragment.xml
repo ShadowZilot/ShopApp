@@ -120,7 +120,7 @@
         android:drawableStart="@drawable/apple_icon"
         android:drawablePadding="12dp"
         android:fontFamily="@font/montserrat"
-        android:text="@string/sign_in_google_label"
+        android:text="@string/sign_in_apple_label"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
