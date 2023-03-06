@@ -13,6 +13,8 @@ interface UserHandling : UserData.Mapper<Unit> {
 
     fun user(): UserData
 
+    fun verifyData(name: String, password: String) : Boolean
+
     class Base(
         context: Context
     ) : UserHandling {
@@ -44,6 +46,11 @@ interface UserHandling : UserData.Mapper<Unit> {
             )
         } else {
             throw UserNotRegistered()
+        }
+
+        override fun verifyData(name: String, password: String): Boolean {
+            val storeName = mDatastore.getString("firstName", "")
+            return storeName == name && password == "0000"
         }
 
         override fun map(

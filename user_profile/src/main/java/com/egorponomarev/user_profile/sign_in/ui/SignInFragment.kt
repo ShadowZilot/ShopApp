@@ -41,6 +41,11 @@ class SignInFragment : BaseFragment<SignInFragmentBinding>(R.layout.sign_in_frag
                 }
             }
         }
+        mBinding.existAccountButton.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_signInFragment_to_loginFragment
+            )
+        }
         mBinding.signInButton.setOnClickListener {
             viewLifecycleOwner.lifecycleScope.launchWhenStarted {
                 mViewModel.signInUser(
