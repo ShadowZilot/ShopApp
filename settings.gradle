@@ -16,3 +16,4 @@ rootProject.name = "ShopApp"
 include ':app'
 include ':user_profile'
 include ':commons'
+include ':store'

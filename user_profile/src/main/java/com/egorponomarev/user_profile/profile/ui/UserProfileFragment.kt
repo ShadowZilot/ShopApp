@@ -1,6 +1,7 @@
 package com.egorponomarev.user_profile.profile.ui
 
 import android.annotation.SuppressLint
+import android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
@@ -39,9 +40,13 @@ class UserProfileFragment : BaseFragment<UserProfileFragmentBinding>(
     private val mPhotoPicker = registerForActivityResult(
         ActivityResultContracts.PickVisualMedia()
     ) {
+        context?.contentResolver?.takePersistableUriPermission(
+            it ?: Uri.EMPTY,
+            FLAG_GRANT_READ_URI_PERMISSION
+        )
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-            mViewModel.uploadImage(it).collect {
-                it.map(this@UserProfileFragment)
+            mViewModel.uploadImage(it).collect { result ->
+                result.map(this@UserProfileFragment)
             }
         }
     }
