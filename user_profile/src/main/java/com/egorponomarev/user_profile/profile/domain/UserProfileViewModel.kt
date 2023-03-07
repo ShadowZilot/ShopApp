@@ -1,10 +1,12 @@
 package com.egorponomarev.user_profile.profile.domain
 
+import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.egorponomarev.theme.base.ResultData
 import com.egorponomarev.user_profile.R
+import com.egorponomarev.user_profile.data.InjectPhotoToUserData
 import com.egorponomarev.user_profile.data.UserData
 import com.egorponomarev.user_profile.data.UserHandling
 import com.egorponomarev.user_profile.data.UserNotRegistered
@@ -27,6 +29,20 @@ class UserProfileViewModel(
         viewModelScope.launch(Dispatchers.IO) {
             mUserHandling.clearUserData()
         }
+    }
+
+    fun uploadImage(image: Uri?): Flow<ResultData<UserData>> {
+        return flow {
+            emit(
+                if (image != null) {
+                    val newData = mUserHandling.user().map(InjectPhotoToUserData(image))
+                    newData.map(mUserHandling)
+                    object : ResultData<UserData>(mData = mUserHandling.user()) {}
+                } else {
+                    object : ResultData<UserData>(mMessage = R.string.photo_not_selected) {}
+                }
+            )
+        }.flowOn(Dispatchers.IO)
     }
 
     fun loadUserData(): Flow<ResultData<UserData>> {

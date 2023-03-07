@@ -1,5 +1,7 @@
 package com.egorponomarev.user_profile.data
 
+import android.net.Uri
+
 /**
  * Human Developing Soft
  *
@@ -9,7 +11,7 @@ data class UserData(
     private val mFirstName: String,
     private val mLastName: String,
     private val mEmail: String,
-    private val mPhoto: String
+    private val mPhoto: Uri
 ) {
 
     fun <T> map(mapper: Mapper<T>) = mapper.map(
@@ -24,7 +26,7 @@ data class UserData(
             firstName: String,
             lastName: String,
             email: String,
-            photo: String
+            photo: Uri
         ) : T
     }
 }

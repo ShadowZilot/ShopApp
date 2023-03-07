@@ -1,6 +1,7 @@
 package com.egorponomarev.user_profile.data
 
 import android.content.Context
+import android.net.Uri
 
 /**
  * Human Developing Soft
@@ -13,7 +14,7 @@ interface UserHandling : UserData.Mapper<Unit> {
 
     fun user(): UserData
 
-    fun verifyData(name: String, password: String) : Boolean
+    fun verifyData(name: String, password: String): Boolean
 
     class Base(
         context: Context
@@ -40,9 +41,11 @@ interface UserHandling : UserData.Mapper<Unit> {
                 mDatastore.getString(
                     "email", ""
                 ) ?: throw UserNotRegistered(),
-                mDatastore.getString(
-                    "photo", ""
-                ) ?: throw UserNotRegistered()
+                Uri.parse(
+                    mDatastore.getString(
+                        "photo", ""
+                    ) ?: throw UserNotRegistered()
+                )
             )
         } else {
             throw UserNotRegistered()
@@ -57,13 +60,13 @@ interface UserHandling : UserData.Mapper<Unit> {
             firstName: String,
             lastName: String,
             email: String,
-            photo: String
+            photo: Uri
         ) {
             mDatastore.edit()
                 .putString("firstName", firstName)
                 .putString("lastName", lastName)
                 .putString("email", email)
-                .putString("photo", photo)
+                .putString("photo", photo.toString())
                 .putBoolean("isRegister", true)
                 .apply()
         }

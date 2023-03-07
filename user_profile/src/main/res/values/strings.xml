@@ -25,4 +25,5 @@
     <string name="user_data_wrong_label">Fill all fields! And check email address</string>
     <string name="user_not_registed">Error occured! User not registered!</string>
     <string name="wrong_login_data">Wrong first name or password!</string>
+    <string name="photo_not_selected">Photo not selected!</string>
 </resources>

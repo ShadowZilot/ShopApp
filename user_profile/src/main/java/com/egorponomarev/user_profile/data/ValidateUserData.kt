@@ -1,5 +1,6 @@
 package com.egorponomarev.user_profile.data
 
+import android.net.Uri
 import android.util.Patterns
 
 /**
@@ -9,8 +10,10 @@ import android.util.Patterns
  */
 class ValidateUserData : UserData.Mapper<Boolean> {
 
-    override fun map(firstName: String, lastName: String,
-                     email: String, photo: String): Boolean {
+    override fun map(
+        firstName: String, lastName: String,
+        email: String, photo: Uri
+    ): Boolean {
         return firstName.isNotEmpty() && lastName.isNotEmpty() &&
                 email.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }

@@ -1,9 +1,12 @@
 package com.egorponomarev.user_profile.profile.ui
 
 import android.annotation.SuppressLint
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -15,6 +18,7 @@ import com.egorponomarev.user_profile.data.UserData
 import com.egorponomarev.user_profile.data.UserHandling
 import com.egorponomarev.user_profile.databinding.UserProfileFragmentBinding
 import com.egorponomarev.user_profile.profile.domain.UserProfileViewModel
+import kotlinx.coroutines.flow.collect
 
 /**
  * Human Developing Soft
@@ -23,13 +27,23 @@ import com.egorponomarev.user_profile.profile.domain.UserProfileViewModel
  */
 class UserProfileFragment : BaseFragment<UserProfileFragmentBinding>(
     R.layout.user_profile_fragment
-), ResultLogic<UserData>, UserData.Mapper<Unit>{
+), ResultLogic<UserData>, UserData.Mapper<Unit> {
     override val mBinding: UserProfileFragmentBinding by lazy {
         UserProfileFragmentBinding.bind(view ?: throw Exception())
     }
 
-    private val mViewModel : UserProfileViewModel by viewModels {
+    private val mViewModel: UserProfileViewModel by viewModels {
         UserProfileViewModel.Factory(UserHandling.Base(requireContext()))
+    }
+
+    private val mPhotoPicker = registerForActivityResult(
+        ActivityResultContracts.PickVisualMedia()
+    ) {
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            mViewModel.uploadImage(it).collect {
+                it.map(this@UserProfileFragment)
+            }
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,6 +51,13 @@ class UserProfileFragment : BaseFragment<UserProfileFragmentBinding>(
             mViewModel.logOut()
             findNavController().navigateWithoutBack(
                 R.id.action_userProfileFragment_to_signInFragment
+            )
+        }
+        mBinding.changePhotoLabel.setOnClickListener {
+            mPhotoPicker.launch(
+                PickVisualMediaRequest(
+                    ActivityResultContracts.PickVisualMedia.ImageOnly
+                )
             )
         }
     }
@@ -51,9 +72,14 @@ class UserProfileFragment : BaseFragment<UserProfileFragmentBinding>(
     }
 
     @SuppressLint("SetTextI18n")
-    override fun map(firstName: String, lastName: String,
-                     email: String, photo: String) {
+    override fun map(
+        firstName: String, lastName: String,
+        email: String, photo: Uri
+    ) {
         mBinding.userNameLabel.text = "$firstName $lastName"
+        if (photo != Uri.EMPTY) {
+            mBinding.profileUserPhoto.setImageURI(photo)
+        }
     }
 
     override fun doIfSuccess(data: UserData) {

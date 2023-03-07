@@ -1,5 +1,6 @@
 package com.egorponomarev.user_profile.sign_in.ui
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -53,7 +54,7 @@ class SignInFragment : BaseFragment<SignInFragmentBinding>(R.layout.sign_in_frag
                         mBinding.signInFirstNameField.text.toString(),
                         mBinding.signInLastNameField.text.toString(),
                         mBinding.signInEmailField.text.toString(),
-                        ""
+                        Uri.EMPTY
                     )
                 ).collect { result ->
                     if (!result) {
