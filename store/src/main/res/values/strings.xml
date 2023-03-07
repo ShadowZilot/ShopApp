@@ -3,4 +3,20 @@
     <string name="latest_image_desc">Image of latest viewed goods</string>
     <string name="add_button_desc">Press button to add good into cart</string>
     <string name="favorite_button_desc">Favorite button</string>
+    <string name="store_title_label">
+        <font color="#000000">Trade by</font><font color="#4E55D7"> bata</font>
+    </string>
+    <string name="location_label">Location</string>
+    <string name="location_button_desc">Location select button</string>
+    <string name="search_label">What are you looking for ?</string>
+    <string name="phones_category_icon_desc">Phones category icon</string>
+    <string name="phones_category_name">Phones</string>
+    <string name="headphones_category">Headphones</string>
+    <string name="games_category_name">Games</string>
+    <string name="cars_category_label">Cars</string>
+    <string name="furniture_category_name">Furniture</string>
+    <string name="kids_category_name">Kids</string>
+    <string name="flash_sale_title">Flash sale</string>
+    <string name="view_all_label">View all</string>
+    <string name="latest_label">Latest</string>
 </resources>
