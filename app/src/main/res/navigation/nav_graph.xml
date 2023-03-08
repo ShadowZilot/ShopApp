@@ -5,4 +5,11 @@
     app:startDestination="@id/user_profile_nav">
 
     <include app:graph="@navigation/user_profile_nav"/>
+    <include app:graph="@navigation/store_nav"/>
+    <action
+        android:id="@+id/toStoreFragment"
+        app:destination="@id/store_nav"/>
+    <action
+        android:id="@+id/toUserProfile"
+        app:destination="@id/user_profile_nav"/>
 </navigation>
