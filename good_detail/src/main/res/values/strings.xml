@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">good_detail</string>
+    <string name="good_detail_image_desc">Image of good</string>
+    <string name="back_button_desc">Back button</string>
+    <string name="fav_button_desc">Favorite button</string>
+    <string name="color_label">Color:</string>
+    <string name="add_cart_label">$%d     ADD TO CART</string>
+</resources>
