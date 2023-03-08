@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.egorponomarev.store.R
 import com.egorponomarev.store.databinding.StoreFragmentBinding
 import com.egorponomarev.store.domain.StoreResult
@@ -30,7 +32,20 @@ class StoreFragment : BaseFragment<StoreFragmentBinding>(R.layout.store_fragment
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        mBinding.flashSaleSection.flashSaleList.layoutManager = LinearLayoutManager(
+            requireContext(),
+            RecyclerView.HORIZONTAL, false
+        )
+        mBinding.flashSaleSection.flashSaleList.adapter = FlashSaleAdapter {}
+        mBinding.latestSection.latestList.layoutManager = LinearLayoutManager(
+            requireContext(),
+            RecyclerView.HORIZONTAL, false
+        )
+        mBinding.latestSection.latestList.adapter = LatestAdapter {}
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            mViewModel.loadContent().collect {
+                it.map(this@StoreFragment)
+            }
             mViewModel.photoUri().collect {
                 if (it != Uri.EMPTY) {
                     mBinding.userPhoto.setImageURI(it)
@@ -40,13 +55,16 @@ class StoreFragment : BaseFragment<StoreFragmentBinding>(R.layout.store_fragment
     }
 
     override fun doIfSuccess(data: StoreResult) {
-//        mBinding.contentContainer.visibility = View.VISIBLE
-//        mBinding.loadingContent.visibility = View.GONE
-//        mBinding.contentErrorLabel.visibility = View.GONE
-        mBinding.contentContainer.visibility = View.GONE
+        (mBinding.latestSection.latestList.adapter as LatestAdapter).fetchData(
+            data.first
+        )
+        (mBinding.flashSaleSection.flashSaleList.adapter as FlashSaleAdapter).fetchData(
+            data.second
+        )
+        mBinding.latestSection
+        mBinding.contentContainer.visibility = View.VISIBLE
         mBinding.loadingContent.visibility = View.GONE
-        mBinding.contentErrorLabel.visibility = View.VISIBLE
-        mBinding.contentErrorLabel.text = "Content loaded successfully!"
+        mBinding.contentErrorLabel.visibility = View.GONE
     }
 
     override fun doIfFailure(message: Int) {

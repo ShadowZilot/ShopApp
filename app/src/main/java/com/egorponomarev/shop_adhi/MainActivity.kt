@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
         bottomNav.setupWithNavController(navController)
+        bottomNav.selectedItemId = R.id.actionProfile
         bottomNav.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.actionHome -> {

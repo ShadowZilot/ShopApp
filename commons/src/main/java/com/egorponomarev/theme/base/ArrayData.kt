@@ -26,7 +26,7 @@ interface ArrayData {
             ).execute()
             return if (response.isSuccessful) {
                 JSONObject(
-                    response.body.toString()
+                    response.body?.string() ?: ""
                 ).getJSONArray(mDataName)
             } else {
                 JSONArray()
