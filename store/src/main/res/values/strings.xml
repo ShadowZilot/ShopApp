@@ -19,4 +19,5 @@
     <string name="flash_sale_title">Flash sale</string>
     <string name="view_all_label">View all</string>
     <string name="latest_label">Latest</string>
+    <string name="something_went_wrong">Something went wrong!\nTry again later!</string>
 </resources>

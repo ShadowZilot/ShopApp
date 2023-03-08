@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.egorponomarev.theme.base.BaseFragment
 import com.egorponomarev.theme.base.navigateWithoutBack
 import com.egorponomarev.user_profile.R
-import com.egorponomarev.user_profile.data.UserHandling
+import com.egorponomarev.theme.user_data.UserHandling
 import com.egorponomarev.user_profile.databinding.LoginFragmentBinding
 import com.egorponomarev.user_profile.login.domain.LoginViewModel
 

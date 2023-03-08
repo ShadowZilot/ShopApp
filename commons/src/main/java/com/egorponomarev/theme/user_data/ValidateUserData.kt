@@ -1,4 +1,4 @@
-package com.egorponomarev.user_profile.data
+package com.egorponomarev.theme.user_data
 
 import android.net.Uri
 import android.util.Patterns

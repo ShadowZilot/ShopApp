@@ -6,10 +6,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.egorponomarev.theme.base.ResultData
 import com.egorponomarev.user_profile.R
-import com.egorponomarev.user_profile.data.InjectPhotoToUserData
-import com.egorponomarev.user_profile.data.UserData
-import com.egorponomarev.user_profile.data.UserHandling
-import com.egorponomarev.user_profile.data.UserNotRegistered
+import com.egorponomarev.theme.user_data.InjectPhotoToUserData
+import com.egorponomarev.theme.user_data.UserData
+import com.egorponomarev.theme.user_data.UserHandling
+import com.egorponomarev.theme.user_data.UserNotRegistered
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

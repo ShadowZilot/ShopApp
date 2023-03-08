@@ -2,7 +2,7 @@ package com.egorponomarev.user_profile.login.domain
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.egorponomarev.user_profile.data.UserHandling
+import com.egorponomarev.theme.user_data.UserHandling
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

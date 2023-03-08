@@ -15,11 +15,10 @@ import com.egorponomarev.theme.base.BaseFragment
 import com.egorponomarev.theme.base.ResultLogic
 import com.egorponomarev.theme.base.navigateWithoutBack
 import com.egorponomarev.user_profile.R
-import com.egorponomarev.user_profile.data.UserData
-import com.egorponomarev.user_profile.data.UserHandling
+import com.egorponomarev.theme.user_data.UserData
+import com.egorponomarev.theme.user_data.UserHandling
 import com.egorponomarev.user_profile.databinding.UserProfileFragmentBinding
 import com.egorponomarev.user_profile.profile.domain.UserProfileViewModel
-import kotlinx.coroutines.flow.collect
 
 /**
  * Human Developing Soft

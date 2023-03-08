@@ -6,16 +6,14 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.egorponomarev.theme.base.BaseFragment
 import com.egorponomarev.theme.base.navigateWithoutBack
 import com.egorponomarev.user_profile.R
-import com.egorponomarev.user_profile.data.UserData
-import com.egorponomarev.user_profile.data.UserHandling
+import com.egorponomarev.theme.user_data.UserData
+import com.egorponomarev.theme.user_data.UserHandling
 import com.egorponomarev.user_profile.databinding.SignInFragmentBinding
 import com.egorponomarev.user_profile.sign_in.domain.SignInViewModel
-import kotlinx.coroutines.flow.collect
 
 /**
  * Human Developing Soft

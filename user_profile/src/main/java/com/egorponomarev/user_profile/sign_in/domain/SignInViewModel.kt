@@ -2,10 +2,10 @@ package com.egorponomarev.user_profile.sign_in.domain
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.egorponomarev.user_profile.data.UserData
-import com.egorponomarev.user_profile.data.UserHandling
-import com.egorponomarev.user_profile.data.UserNotRegistered
-import com.egorponomarev.user_profile.data.ValidateUserData
+import com.egorponomarev.theme.user_data.UserData
+import com.egorponomarev.theme.user_data.UserHandling
+import com.egorponomarev.theme.user_data.UserNotRegistered
+import com.egorponomarev.theme.user_data.ValidateUserData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
