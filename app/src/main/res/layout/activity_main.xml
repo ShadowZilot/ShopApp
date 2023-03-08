@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="@drawable/bottom_nav_bg"
+        app:itemIconSize="18dp"
         app:itemBackground="@drawable/selected_bg_selector"
         app:itemIconTint="#909090"
         app:labelVisibilityMode="unlabeled"

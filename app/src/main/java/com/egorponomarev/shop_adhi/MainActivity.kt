@@ -7,6 +7,7 @@ import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.egorponomarev.theme.base.navigateWithoutBack
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -22,11 +23,11 @@ class MainActivity : AppCompatActivity() {
         bottomNav.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.actionHome -> {
-                    navController.navigate(R.id.toStoreFragment)
+                    navController.navigateWithoutBack(R.id.toStoreFragment)
                     true
                 }
                 R.id.actionProfile -> {
-                    navController.navigate(R.id.toUserProfile)
+                    navController.navigateWithoutBack(R.id.toUserProfile)
                     true
                 }
                 else -> false

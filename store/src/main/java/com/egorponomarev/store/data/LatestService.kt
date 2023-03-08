@@ -2,6 +2,7 @@ package com.egorponomarev.store.data
 
 import com.egorponomarev.store.data.dto.LatestItem
 import com.egorponomarev.theme.base.ArrayData
+import com.egorponomarev.theme.base.ContentService
 
 /**
  * Human Developing Soft

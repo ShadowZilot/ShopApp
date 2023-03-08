@@ -1,4 +1,4 @@
-package com.egorponomarev.store.data
+package com.egorponomarev.theme.base
 
 /**
  * Human Developing Soft

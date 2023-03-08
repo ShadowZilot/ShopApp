@@ -4,7 +4,7 @@ import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.egorponomarev.store.R
-import com.egorponomarev.store.data.ApiEndpoints
+import com.egorponomarev.theme.base.ApiEndpoints
 import com.egorponomarev.store.data.FlashSaleService
 import com.egorponomarev.store.data.LatestService
 import com.egorponomarev.store.data.dto.FlashSaleItem
