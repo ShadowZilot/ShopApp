@@ -3,8 +3,11 @@ package com.egorponomarev.store.ui
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import androidx.core.net.toUri
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.egorponomarev.store.R
@@ -36,12 +39,25 @@ class StoreFragment : BaseFragment<StoreFragmentBinding>(R.layout.store_fragment
             requireContext(),
             RecyclerView.HORIZONTAL, false
         )
-        mBinding.flashSaleSection.flashSaleList.adapter = FlashSaleAdapter {}
+        val detailNavigation: () -> Unit = {
+            findNavController().navigate(
+                NavDeepLinkRequest.Builder
+                    .fromUri(
+                        "android-app://com.egorponomarev.shop_adhi/to_details".toUri()
+                    )
+                    .build()
+            )
+        }
+        mBinding.flashSaleSection.flashSaleList.adapter = FlashSaleAdapter(detailNavigation)
         mBinding.latestSection.latestList.layoutManager = LinearLayoutManager(
             requireContext(),
             RecyclerView.HORIZONTAL, false
         )
-        mBinding.latestSection.latestList.adapter = LatestAdapter {}
+        mBinding.latestSection.latestList.adapter = LatestAdapter(detailNavigation)
+    }
+
+    override fun onStart() {
+        super.onStart()
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             mViewModel.loadContent().collect {
                 it.map(this@StoreFragment)

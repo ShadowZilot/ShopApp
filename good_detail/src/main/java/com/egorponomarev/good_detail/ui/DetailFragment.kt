@@ -45,6 +45,10 @@ class DetailFragment : BaseFragment<DetailFragmentBinding>(R.layout.detail_fragm
             }
         }
         val changeAmount : (amount: Int) -> Unit = { amount ->
+            mBinding.quantityLabel.text = requireContext().getString(
+                R.string.quantity_label,
+                amount
+            )
             mBinding.addCartButton.text = requireContext().getString(
                 R.string.add_cart_label,
                 PriceLabel.Base(

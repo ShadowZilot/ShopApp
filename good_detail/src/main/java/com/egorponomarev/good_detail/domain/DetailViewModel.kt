@@ -42,8 +42,10 @@ class DetailViewModel(
     }
 
     fun minusAmount(listener: (newAmount: Int) -> Unit) {
-        mAmountOfGood--
-        listener.invoke(mAmountOfGood)
+        if (mAmountOfGood > 1) {
+            mAmountOfGood--
+            listener.invoke(mAmountOfGood)
+        }
     }
 
     fun amount() : Int = mAmountOfGood

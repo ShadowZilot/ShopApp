@@ -6,6 +6,7 @@
 
     <include app:graph="@navigation/user_profile_nav"/>
     <include app:graph="@navigation/store_nav"/>
+    <include app:graph="@navigation/detail_nav"/>
     <action
         android:id="@+id/toStoreFragment"
         app:destination="@id/store_nav"/>

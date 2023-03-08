@@ -38,8 +38,9 @@
             android:layout_height="279dp"
             android:layout_marginTop="40dp"
             android:contentDescription="@string/good_detail_image_desc"
-            android:foreground="@drawable/detail_image_bg"
+            android:background="@drawable/detail_image_bg"
             android:scaleType="centerCrop"
+            android:outlineProvider="background"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/backgrounds/scenic" />

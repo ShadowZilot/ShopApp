@@ -14,6 +14,7 @@
         android:contentDescription="@string/latest_image_desc"
         android:scaleType="centerCrop"
         android:foreground="@drawable/good_image_mask"
+        android:background="@drawable/good_image_mask"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

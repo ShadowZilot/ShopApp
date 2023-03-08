@@ -13,6 +13,7 @@
         android:layout_height="match_parent"
         android:contentDescription="@string/latest_image_desc"
         android:foreground="@drawable/good_image_mask"
+        android:background="@drawable/good_image_mask"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
