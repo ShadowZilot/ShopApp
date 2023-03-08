@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">theme</string>
+    <string name="price_label_float">$ %.0f</string>
+    <string name="price_label_integer">$ %.2f</string>
 </resources>

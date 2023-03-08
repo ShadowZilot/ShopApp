@@ -3,7 +3,9 @@ package com.egorponomarev.store.ui
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.egorponomarev.store.data.dto.LatestItem
 import com.egorponomarev.store.databinding.LatestListItemBinding
+import com.egorponomarev.theme.base.PriceLabel
 import com.squareup.picasso.Picasso
+import java.lang.ref.WeakReference
 
 /**
  * Human Developing Soft
@@ -23,7 +25,10 @@ class LatestViewHolder(
         Picasso.get().load(
             imageUrl
         ).into(mBinding.latestImage)
-        mBinding.latestPrice.text = price.toString()
+        mBinding.latestPrice.text = PriceLabel.Base(
+            WeakReference(mBinding.root.context),
+            price
+        ).label()
         mBinding.root.setOnClickListener {
             mOnCLicked.invoke()
         }

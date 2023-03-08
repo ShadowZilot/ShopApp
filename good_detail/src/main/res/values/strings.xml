@@ -4,5 +4,8 @@
     <string name="back_button_desc">Back button</string>
     <string name="fav_button_desc">Favorite button</string>
     <string name="color_label">Color:</string>
-    <string name="add_cart_label">$%d     ADD TO CART</string>
+    <string name="add_cart_label">$%s     ADD TO CART</string>
+    <string name="detail_error_text">Something went wrong!\nTry again later!</string>
+    <string name="quantity_label">Quantity: %d</string>
+    <string name="ratings_reviews_label">reviews</string>
 </resources>
