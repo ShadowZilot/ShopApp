@@ -10,19 +10,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/contentErrorLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:drawablePadding="12dp"
         android:lineSpacingExtra="6dp"
         android:textAlignment="center"
-        android:visibility="gone"
         android:textColor="@color/black"
         android:textSize="16sp"
-        android:layout_gravity="center"
+        android:visibility="gone"
         app:drawableTopCompat="@drawable/ic_no_connection"
         tools:text="Something went wrong!\nTry again later!" />
 
@@ -37,10 +37,10 @@
             android:layout_width="328dp"
             android:layout_height="279dp"
             android:layout_marginTop="40dp"
-            android:contentDescription="@string/good_detail_image_desc"
             android:background="@drawable/detail_image_bg"
-            android:scaleType="centerCrop"
+            android:contentDescription="@string/good_detail_image_desc"
             android:outlineProvider="background"
+            android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/backgrounds/scenic" />
@@ -172,17 +172,23 @@
             android:id="@+id/colorContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="11dp"
+            android:layout_marginStart="13dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
             android:orientation="horizontal"
+            android:paddingVertical="11dp"
+            android:paddingHorizontal="11dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/colorLabel"/>
+            app:layout_constraintTop_toBottomOf="@id/colorLabel" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/addToCartContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/detail_add_container_bg"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingBottom="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
