@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.egorponomarev.theme.base.BaseFragment
+import com.egorponomarev.theme.base.ShopApp
 import com.egorponomarev.theme.base.navigateWithoutBack
 import com.egorponomarev.user_profile.R
 import com.egorponomarev.theme.user_data.UserHandling
@@ -28,6 +29,7 @@ class LoginFragment : BaseFragment<LoginFragmentBinding>(R.layout.login_fragment
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        (requireActivity().application as ShopApp).hideBottomNav()
         mBinding.loginButton.setOnClickListener {
             viewLifecycleOwner.lifecycleScope.launchWhenStarted {
                 mViewModel.verifyData(

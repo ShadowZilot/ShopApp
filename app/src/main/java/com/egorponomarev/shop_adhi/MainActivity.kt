@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.egorponomarev.good_detail.R.id
+import com.egorponomarev.theme.base.ShopApp
 import com.egorponomarev.theme.base.navigateWithoutBack
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -20,6 +21,8 @@ class MainActivity : AppCompatActivity() {
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
         bottomNav.setupWithNavController(navController)
         bottomNav.selectedItemId = R.id.actionProfile
+        bottomNav.menu.findItem(R.id.actionProfile).isChecked = true
+        (application as ShopApp).initBottomNav(bottomNav)
         bottomNav.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.actionHome -> {

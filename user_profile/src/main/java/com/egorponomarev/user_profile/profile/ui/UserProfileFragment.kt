@@ -13,6 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.egorponomarev.theme.base.BaseFragment
 import com.egorponomarev.theme.base.ResultLogic
+import com.egorponomarev.theme.base.ShopApp
 import com.egorponomarev.theme.base.navigateWithoutBack
 import com.egorponomarev.user_profile.R
 import com.egorponomarev.theme.user_data.UserData
@@ -51,6 +52,7 @@ class UserProfileFragment : BaseFragment<UserProfileFragmentBinding>(
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        (requireActivity().application as ShopApp).showBottomNav()
         mBinding.logOut.setOnClickListener {
             mViewModel.logOut()
             findNavController().navigateWithoutBack(

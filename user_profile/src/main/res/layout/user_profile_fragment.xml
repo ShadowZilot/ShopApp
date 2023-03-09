@@ -104,14 +104,34 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/balance"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        style="@style/ProfileButton"
+        android:drawablePadding="12dp"
+        android:background="@null"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/montserrat"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
         android:drawableStart="@drawable/credit_card"
         android:text="@string/balance_label"
         app:layout_constraintTop_toBottomOf="@id/paymentMethod"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toStartOf="@id/moneyLabel"/>
+
+    <TextView
+        android:id="@+id/moneyLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$ 1593"
+        android:textColor="#040402"
+        android:textSize="14sp"
+        android:fontFamily="@font/montserrat"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/balance"
+        app:layout_constraintBottom_toBottomOf="@id/balance"
+        tools:ignore="HardcodedText" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/tradeHistory"

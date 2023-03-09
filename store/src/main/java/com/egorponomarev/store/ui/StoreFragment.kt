@@ -17,6 +17,7 @@ import com.egorponomarev.store.domain.StoreResult
 import com.egorponomarev.store.domain.StoreViewModel
 import com.egorponomarev.theme.base.BaseFragment
 import com.egorponomarev.theme.base.ResultLogic
+import com.egorponomarev.theme.base.ShopApp
 import com.egorponomarev.theme.base.navigateWithoutBack
 import com.egorponomarev.theme.user_data.UserHandling
 import kotlinx.coroutines.flow.collect
@@ -37,6 +38,7 @@ class StoreFragment : BaseFragment<StoreFragmentBinding>(R.layout.store_fragment
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        (requireActivity().application as ShopApp).showBottomNav()
         mBinding.flashSaleSection.flashSaleList.layoutManager = LinearLayoutManager(
             requireContext(),
             RecyclerView.HORIZONTAL, false
