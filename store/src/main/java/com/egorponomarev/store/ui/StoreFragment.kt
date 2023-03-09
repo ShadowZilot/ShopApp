@@ -16,8 +16,8 @@ import com.egorponomarev.store.domain.StoreResult
 import com.egorponomarev.store.domain.StoreViewModel
 import com.egorponomarev.theme.base.BaseFragment
 import com.egorponomarev.theme.base.ResultLogic
+import com.egorponomarev.theme.base.navigateWithoutBack
 import com.egorponomarev.theme.user_data.UserHandling
-import kotlinx.coroutines.flow.collect
 
 /**
  * Human Developing Soft
@@ -40,7 +40,7 @@ class StoreFragment : BaseFragment<StoreFragmentBinding>(R.layout.store_fragment
             RecyclerView.HORIZONTAL, false
         )
         val detailNavigation: () -> Unit = {
-            findNavController().navigate(
+            findNavController().navigateWithoutBack(
                 NavDeepLinkRequest.Builder
                     .fromUri(
                         "android-app://com.egorponomarev.shop_adhi/to_details".toUri()

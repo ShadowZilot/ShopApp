@@ -1,12 +1,12 @@
 package com.egorponomarev.shop_adhi
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.NavController
-import androidx.navigation.NavDestination
+import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.egorponomarev.good_detail.R.id
 import com.egorponomarev.theme.base.navigateWithoutBack
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -33,5 +33,16 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
+        onBackPressedDispatcher.addCallback(object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (findNavController(R.id.mainHostNav)
+                        .backQueue.last().destination.id == id.detailFragment
+                ) {
+                    findNavController(R.id.mainHostNav).navigateWithoutBack(
+                        R.id.toStoreFragment
+                    )
+                }
+            }
+        })
     }
 }

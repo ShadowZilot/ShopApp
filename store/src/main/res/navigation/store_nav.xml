@@ -8,5 +8,5 @@
     <fragment
         android:id="@+id/storeFragment"
         android:name="com.egorponomarev.store.ui.StoreFragment"
-        tools:layout="@layout/store_fragment"/>
+        tools:layout="@layout/store_fragment" />
 </navigation>
