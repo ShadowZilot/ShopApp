@@ -20,5 +20,5 @@
     <string name="view_all_label">View all</string>
     <string name="latest_label">Latest</string>
     <string name="something_went_wrong">Something went wrong!\nTry again later!</string>
-    <string name="discount_label">%d /u0025 off</string>
+    <string name="discount_label">%d \%% off</string>
 </resources>

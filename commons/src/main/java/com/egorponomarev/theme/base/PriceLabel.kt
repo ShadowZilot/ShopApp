@@ -18,7 +18,7 @@ interface PriceLabel {
         private val mPrice: Float
     ) : PriceLabel {
 
-        override fun label() = if (mPrice % 1.0f == 0f) {
+        override fun label() = if (mPrice % 1.0f != 0f) {
             mContext.get()?.getString(R.string.price_label_integer, mPrice) ?: "Error"
         } else {
             mContext.get()?.getString(R.string.price_label_float, mPrice) ?: "Error"
