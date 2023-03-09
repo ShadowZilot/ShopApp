@@ -33,14 +33,14 @@
         android:id="@+id/userPhoto"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="47dp"
         android:src="@drawable/baseline_account_circle_24"
         app:civ_border_color="#C0C0C0"
         app:civ_border_width="2dp"
-        app:layout_constraintBottom_toBottomOf="@id/storeTitle"
+        app:layout_constraintBottom_toTopOf="@id/searchFieldContainer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/storeTitle"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.05" />
 
     <TextView
@@ -68,23 +68,33 @@
         app:layout_constraintStart_toEndOf="@id/locationLabel"
         app:layout_constraintTop_toTopOf="@id/locationLabel" />
 
-    <EditText
-        android:id="@+id/searchField"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/searchFieldContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="42dp"
         android:layout_marginTop="9dp"
-        android:background="@drawable/search_field_bg"
-        android:drawableEnd="@drawable/ic_search"
-        android:hint="@string/search_label"
         android:importantForAutofill="no"
-        android:inputType="text"
-        android:padding="7dp"
-        android:textAlignment="center"
-        android:textSize="11sp"
+        app:boxBackgroundMode="outline"
+        app:expandedHintEnabled="true"
+        app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/locationLabel" />
+        app:layout_constraintTop_toBottomOf="@id/locationLabel">
+
+        <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+            android:id="@+id/searchField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search_field_bg"
+            android:drawableEnd="@drawable/ic_search"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:padding="7dp"
+            android:textColorHint="#5B5B5B"
+            android:textSize="11sp"
+            android:hint="@string/search_label" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
         android:id="@+id/categoriesContainer"
@@ -95,7 +105,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchField">
+        app:layout_constraintTop_toBottomOf="@id/searchFieldContainer">
 
         <TextView
             android:layout_width="wrap_content"

@@ -3,6 +3,7 @@ package com.egorponomarev.store.ui
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.ArrayAdapter
 import androidx.core.net.toUri
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -18,6 +19,7 @@ import com.egorponomarev.theme.base.BaseFragment
 import com.egorponomarev.theme.base.ResultLogic
 import com.egorponomarev.theme.base.navigateWithoutBack
 import com.egorponomarev.theme.user_data.UserHandling
+import kotlinx.coroutines.flow.collect
 
 /**
  * Human Developing Soft
@@ -47,6 +49,19 @@ class StoreFragment : BaseFragment<StoreFragmentBinding>(R.layout.store_fragment
                     )
                     .build()
             )
+        }
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            mViewModel.searchList().collect {
+                mBinding.searchField.setAdapter(
+                    ArrayAdapter(
+                        requireContext(),
+                        android.R.layout.simple_dropdown_item_1line,
+                        it.toTypedArray()
+                    ).apply {
+                        setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                    }
+                )
+            }
         }
         mBinding.flashSaleSection.flashSaleList.adapter = FlashSaleAdapter(detailNavigation)
         mBinding.latestSection.latestList.layoutManager = LinearLayoutManager(

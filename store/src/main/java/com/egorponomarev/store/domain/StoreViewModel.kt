@@ -7,6 +7,7 @@ import com.egorponomarev.store.R
 import com.egorponomarev.theme.base.ApiEndpoints
 import com.egorponomarev.store.data.FlashSaleService
 import com.egorponomarev.store.data.LatestService
+import com.egorponomarev.store.data.SearchService
 import com.egorponomarev.store.data.dto.FlashSaleItem
 import com.egorponomarev.store.data.dto.LatestItem
 import com.egorponomarev.theme.base.ArrayData
@@ -45,6 +46,14 @@ class StoreViewModel(
                 } catch (e: UserNotRegistered) {
                     Uri.EMPTY
                 }
+            )
+        }.flowOn(Dispatchers.IO)
+    }
+
+    fun searchList() : Flow<List<String>> {
+        return flow {
+            emit(
+                SearchService().content()
             )
         }.flowOn(Dispatchers.IO)
     }
