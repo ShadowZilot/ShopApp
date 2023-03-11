@@ -51,6 +51,7 @@ class SignInFragment : BaseFragment<SignInFragmentBinding>(R.layout.sign_in_frag
             viewLifecycleOwner.lifecycleScope.launchWhenStarted {
                 mViewModel.signInUser(
                     UserData(
+                        -1,
                         mBinding.signInFirstNameField.text.toString(),
                         mBinding.signInLastNameField.text.toString(),
                         mBinding.signInEmailField.text.toString(),

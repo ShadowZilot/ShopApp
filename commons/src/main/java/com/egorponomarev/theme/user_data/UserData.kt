@@ -1,16 +1,26 @@
 package com.egorponomarev.theme.user_data
 
 import android.net.Uri
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 /**
  * Human Developing Soft
  *
  * @author Egor Ponomarev
  */
+@Entity(tableName = "users")
 data class UserData(
+    @PrimaryKey(autoGenerate = true)
+    private val mId: Int,
+    @ColumnInfo("firstName")
     private val mFirstName: String,
+    @ColumnInfo("lastName")
     private val mLastName: String,
+    @ColumnInfo("email")
     private val mEmail: String,
+    @ColumnInfo("photo")
     private val mPhoto: Uri
 ) {
 
@@ -18,7 +28,8 @@ data class UserData(
         mFirstName,
         mLastName,
         mEmail,
-        mPhoto
+        mPhoto,
+        mId
     )
 
     interface Mapper<T> {
@@ -26,7 +37,8 @@ data class UserData(
             firstName: String,
             lastName: String,
             email: String,
-            photo: Uri
+            photo: Uri,
+            id: Int
         ) : T
     }
 }

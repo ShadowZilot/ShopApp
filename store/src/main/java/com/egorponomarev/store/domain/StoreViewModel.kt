@@ -40,7 +40,8 @@ class StoreViewModel(
                             firstName: String,
                             lastName: String,
                             email: String,
-                            photo: Uri
+                            photo: Uri,
+                            id: Int
                         ) = photo
                     })
                 } catch (e: UserNotRegistered) {

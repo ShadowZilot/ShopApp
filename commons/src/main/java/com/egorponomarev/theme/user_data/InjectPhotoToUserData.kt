@@ -13,8 +13,9 @@ class InjectPhotoToUserData(
 
     override fun map(
         firstName: String, lastName: String,
-        email: String, photo: Uri
+        email: String, photo: Uri, id: Int
     ) = UserData(
+        id,
         firstName,
         lastName,
         email,

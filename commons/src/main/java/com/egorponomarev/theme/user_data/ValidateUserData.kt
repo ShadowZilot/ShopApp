@@ -12,7 +12,7 @@ class ValidateUserData : UserData.Mapper<Boolean> {
 
     override fun map(
         firstName: String, lastName: String,
-        email: String, photo: Uri
+        email: String, photo: Uri, id: Int
     ): Boolean {
         return firstName.isNotEmpty() && lastName.isNotEmpty() &&
                 email.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()

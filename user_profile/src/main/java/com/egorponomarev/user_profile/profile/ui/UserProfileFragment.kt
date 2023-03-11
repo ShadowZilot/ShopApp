@@ -80,7 +80,7 @@ class UserProfileFragment : BaseFragment<UserProfileFragmentBinding>(
     @SuppressLint("SetTextI18n")
     override fun map(
         firstName: String, lastName: String,
-        email: String, photo: Uri
+        email: String, photo: Uri, id: Int
     ) {
         mBinding.userNameLabel.text = "$firstName $lastName"
         if (photo != Uri.EMPTY) {

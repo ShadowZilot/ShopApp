@@ -32,6 +32,7 @@ interface UserHandling : UserData.Mapper<Unit> {
 
         override fun user() = if (mDatastore.getBoolean("isRegister", false)) {
             UserData(
+                -1,
                 mDatastore.getString(
                     "firstName", ""
                 ) ?: throw UserNotRegistered(),
@@ -60,7 +61,8 @@ interface UserHandling : UserData.Mapper<Unit> {
             firstName: String,
             lastName: String,
             email: String,
-            photo: Uri
+            photo: Uri,
+            id: Int
         ) {
             mDatastore.edit()
                 .putString("firstName", firstName)
